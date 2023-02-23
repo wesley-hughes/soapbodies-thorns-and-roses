@@ -5,7 +5,8 @@ import { getNurseriesWithFlowerAndDist } from "./NurApis"
 import { Nursery } from "./Nursery"
 
 
-export const NurList = () => {
+export const NurList = ({flowerObjects}) => {
+
     const [nurseriesPlus, setNurseriesPlus] = useState([])
     const [flowers, setFlowers] = useState([])
     const [distributors, setDistributors] = useState([])
@@ -60,7 +61,7 @@ export const NurList = () => {
                 return <Nursery key={`nurseryPlus--${nurseryPlus.id}`}
                     id={nurseryPlus.id}
                     name={nurseryPlus.name}
-                    flowerObjects={matchFlowerObjects(nurseryPlus, flowers)}
+                    flowers={flowerObjects}
                     distributors={matchDistributorObjects(nurseryPlus)}
                 />
             })

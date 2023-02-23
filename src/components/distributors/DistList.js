@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
-import { getFlowers, matchFlowerObjects } from "../flowers/FlowerPower"
 import { getNurseriesWithFlowerAndDist } from "../nurseries/NurApis"
 import { getDistributors, getDistributorsPlus } from "./DistApis"
+import { Distributor } from "./Distributor"
 
 /*
 Business name
@@ -13,33 +13,34 @@ An unordered list of retailer business names that purchases flowers from the dis
 */
 
 
-export const DistList =() => {
+export const DistList = ({flowerObjects}) => {
     const [distributorsPlus, setDistributorsPlus] = useState([])
-    const [flowers, setFlowers] = useState([])
     const [nurseriesPlus, setNurseriesPlus] = useState([])
     
 
 
     useEffect(() => {
         getDistributorsPlus()
+        // Fetching from "http://localhost:8088/distributors?_embed=retailers&_embed=distributorNurseries"
         .then((data) => setDistributorsPlus(data))
         getNurseriesWithFlowerAndDist()
         .then((data) => setNurseriesPlus(data)) 
-        getFlowers()
-        .then((data) => setFlowers(data))
     },[]
     )
 
     return <section className="">
-        {/* <ul>
+        {<ul>
             {
-                distributorsPlus.map(distributorPlus => <Distributor key={`distributor--${distributor.id}`} 
-                name={distributor.name}
-                retailers={distributor.retailers}
+                distributorsPlus.map(distributorPlus => <Distributor key={`distributor--${distributorPlus.id}`} 
+                name={distributorPlus.name}
+                retailers={distributorPlus.retailers}
+                markup={distributorPlus.markup}
+                distributorNurseries={distributorPlus.distributorNurseries}
+                flowers={flowerObjects}
                 
                 />)
             }
         </ul>
-     */}
+    }
     </section>
 }
