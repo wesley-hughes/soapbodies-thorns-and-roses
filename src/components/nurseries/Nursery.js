@@ -9,18 +9,23 @@ export const Nursery = ({ id, name, flowers, distributors }) => {
 
 
     return  <section className="nursery" key={`nursery__${id}`}>
-            <header className="nursery__header">{name}</header>
+        <div>
+            <header className="nursery__header"><h2>{name}</h2></header>
+            <div><h5>Flowers</h5>
             <ul>
             {
                 flowers.filter(flower => flower.nurseryId === id)
                 .map(flower => <li key={`flower__${flower.species}`}>{flower.color} {flower.species} Cost: ${flower.price} </li>)
             }
         </ul>
+        </div>
+        <div><h5>Distributors</h5>
             <ul>
                 {
                     distributors.map(distributor => <li key={`distributor${distributor.id}`}>Distributor: {distributor.name}</li> )
                 }
         </ul>
-        
+        </div>
+        </div>
         </section>
 }

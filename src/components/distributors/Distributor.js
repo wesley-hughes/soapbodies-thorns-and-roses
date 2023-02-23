@@ -10,15 +10,27 @@ An unordered list of retailer business names that purchases flowers from the dis
 export const Distributor = ({name, retailers, markup, distributorNurseries, flowers}) => {
 
     return <>
-    <header className="distributor__header">{name}</header>
-    <ul>
+    <div>
+    <header className="distributor__header"><h2>{name}</h2></header>
+        <div><h5>Flowers</h5>
+         <ul>
         {
             distributorNurseries.map(dN => {
                 const matchedFlower = flowers.find(flower => flower.nurseryId === dN.nurseryId)
-                matchedFlower.price = matchedFlower.price * (markup / 100)
-                return <li key={`flower--${dN.id}`}>{matchedFlower.color} {matchedFlower.species} Cost: ${parseFloat(matchedFlower.price, 2)}</li>
+                const distMarkup = parseFloat(matchedFlower.price * ((markup +100) / 100), 2)
+
+                return <li key={`flower--${dN.id}`}>{matchedFlower.color} {matchedFlower.species} Cost: ${distMarkup}</li>
             })
         }
-    </ul>
+        </ul>
+        </div>
+        <div><h5>Retailers</h5>
+        <ul>
+        {
+            retailers.map(retailer => <li key={`retailer--{retailer.id}`}>{retailer.name}</li>)
+        }
+         </ul>
+        </div>
+    </div>
     </>
 }
