@@ -1,6 +1,6 @@
 
 
-export const Nursery = ({ id, name, flowerObjects, distributors }) => {
+export const Nursery = ({ id, name, flowers, distributors }) => {
 
 
     //     Business name
@@ -12,7 +12,8 @@ export const Nursery = ({ id, name, flowerObjects, distributors }) => {
             <header className="nursery__header">{name}</header>
             <ul>
             {
-                flowerObjects.map(flowerObject => <li key={`flower__${flowerObject.species}`}>{flowerObject.color} {flowerObject.species} Cost: ${flowerObject.price} </li>)
+                flowers.filter(flower => flower.nurseryId === id)
+                .map(flower => <li key={`flower__${flower.species}`}>{flower.color} {flower.species} Cost: ${flower.price} </li>)
             }
         </ul>
             <ul>
