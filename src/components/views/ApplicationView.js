@@ -12,7 +12,7 @@ export const ApplicationViews = () => {
                 <p>God made dirt, so dirt don't hurt.</p>
                 <Outlet />
             </>}>
-                <Route path="nurseries" element={<NurList flowers={flowers} /> } />
+                <Route path="nurseries" element={<NurList /> } />
                 {/* <Route path="/distributors" element={<DistList flowers={flowers} />} /> */}
                 {/*<Route path="/retailers" element={<RetList /> } /> */}
             </Route>

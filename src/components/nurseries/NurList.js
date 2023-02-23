@@ -5,7 +5,7 @@ import { getNurseriesWithFlowerAndDist } from "./NurApis"
 import { Nursery } from "./Nursery"
 
 
-export const NurList = ({flowers}) => {
+export const NurList = () => {
     const [nurseriesPlus, setNurseriesPlus] = useState([])
     const [flowers, setFlowers] = useState([])
     const [distributors, setDistributors] = useState([])
