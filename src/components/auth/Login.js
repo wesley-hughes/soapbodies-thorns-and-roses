@@ -4,13 +4,13 @@ import { useNavigate } from "react-router-dom"
 
 export const Login = () => {
     const [email, set] = useState("")
+    const [password, setPassword] = useState("")
     const navigate = useNavigate()
 
     const handleLogin = (e) => {
         e.preventDefault()
 
-        //ADD PASSWORD AUTH
-        return fetch(`http://localhost:8088/users?email=${email}`)
+        return fetch(`http://localhost:8088/users?email=${email}&password=${password}`)
             .then(res => res.json())
             .then(foundUsers => {
                 if (foundUsers.length === 1) {
@@ -44,7 +44,10 @@ export const Login = () => {
                     </fieldset>
                     <fieldset>
                     <label for="password">Password:</label>
-                    <input type="password" name="password" placeholder="Password" />
+                    <input type="password" 
+                    value={password}
+                    onChange={evt => setPassword(evt.target.value)}
+                    name="password" placeholder="Password" />
                 </fieldset>
                     <fieldset>
                         <button type="submit">
