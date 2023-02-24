@@ -6,9 +6,14 @@ An unordered list of all flowers that the distributor grows. Show color, species
 An unordered list of retailer business names that purchases flowers from the distributor.
 */
 
+import { getMatchedDistNur } from "./DistApis"
+
 //BROKEN AF
 export const Distributor = ({name, retailers, markup, distributorNurseries, flowers}) => {
-
+    // This is to make sure that our fetch race doesn't let flowers finish last so that they populate when we need them to
+    if (flowers.length === 0) {
+        return null
+    }
     return <>
     <div>
     <header className="distributor__header"><h2>{name}</h2></header>
@@ -16,8 +21,8 @@ export const Distributor = ({name, retailers, markup, distributorNurseries, flow
          <ul>
         {
             distributorNurseries.map(dN => {
-                const matchedFlower = flowers.find(flower => flower.nurseryId === dN.nurseryId)
-                const distMarkup = parseFloat(matchedFlower.price * ((markup +100) / 100), 2)
+                const matchedFlower = getMatchedDistNur(dN, flowers)
+                const distMarkup = (matchedFlower.price * ((markup +100) / 100)).toFixed(2)
 
                 return <li key={`flower--${dN.id}`}>{matchedFlower.color} {matchedFlower.species} Cost: ${distMarkup}</li>
             })
@@ -27,7 +32,7 @@ export const Distributor = ({name, retailers, markup, distributorNurseries, flow
         <div><h5>Retailers</h5>
         <ul>
         {
-            retailers.map(retailer => <li key={`retailer--{retailer.id}`}>{retailer.name}</li>)
+            retailers.map(retailer => <li key={`retailer--${retailer.id}`}>{retailer.name}</li>)
         }
          </ul>
         </div>

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { getDistributors } from "../distributors/DistApis"
+import { getDistributorsPlus } from "../distributors/DistApis"
 import { getFlowers, matchFlowerObjects } from "../flowers/FlowerPower"
 import { getNurseriesWithFlowerAndDist } from "./NurApis"
 import { Nursery } from "./Nursery"
@@ -13,7 +13,7 @@ export const NurList = ({flowerObjects}) => {
 
 
     useEffect(() => {
-        getDistributors()
+        getDistributorsPlus()
             .then((data) => setDistributors(data))
         getNurseriesWithFlowerAndDist()
             //http://localhost:8088/nurseries?_embed=nurseryFlowers&_embed=distributorNurseries

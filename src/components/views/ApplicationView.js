@@ -39,8 +39,7 @@ export const ApplicationViews = () => {
 
                 <Route path="nurseries" element={<NurList flowerObjects={getFlowerObjects(nurseryFlowers)}/> } />
                 <Route path="distributors" element={<DistList flowerObjects={getFlowerObjects(nurseryFlowers)} />} />
-
-                {/*<Route path="/retailers" element={<RetList /> } /> */}
+                {<Route path="/retailers" element={<RetList flowerObjects={getFlowerObjects(nurseryFlowers)} /> } />}
             </Route>
         </Routes>
     </>

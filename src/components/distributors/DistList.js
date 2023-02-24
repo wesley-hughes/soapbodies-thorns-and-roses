@@ -28,7 +28,7 @@ export const DistList = ({flowerObjects}) => {
     },[]
     )
 
-    return <section className="">
+    return <section className="distributors">
         {<ul>
             {
                 distributorsPlus.map(distributorPlus => <Distributor key={`distributor--${distributorPlus.id}`} 
