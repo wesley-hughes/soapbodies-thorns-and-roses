@@ -3,6 +3,7 @@ import { useEffect, useState } from "react"
 import { DistList } from "../distributors/DistList"
 import { NurList } from "../nurseries/NurList"
 import { RetList } from "../retailers/RetList"
+import { PurchaseList } from "../purchases/PurchaseList"
 
 export const ApplicationViews = () => {
     const [nurseryFlowers, setNurFlowers] = useState([])
@@ -39,7 +40,9 @@ export const ApplicationViews = () => {
 
                 <Route path="nurseries" element={<NurList flowerObjects={getFlowerObjects(nurseryFlowers)}/> } />
                 <Route path="distributors" element={<DistList flowerObjects={getFlowerObjects(nurseryFlowers)} />} />
+                <Route path="purchaseList" element={<PurchaseList />} />
                 {<Route path="/retailers" element={<RetList flowerObjects={getFlowerObjects(nurseryFlowers)} /> } />}
+
             </Route>
         </Routes>
     </>
