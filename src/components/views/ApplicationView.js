@@ -32,8 +32,8 @@ export const ApplicationViews = () => {
     return <>
         <Routes>
             <Route path="/" element={<>
-                <h1>Thorns & Roses</h1>
-                <p>God made dirt, so dirt don't hurt.</p>
+                <header className="text-3xl mt-4">Thorns & Roses</header>
+                <p className="mb-5">God made dirt, so dirt don't hurt.</p>
                 <Outlet />
             </>}>
 

@@ -8,10 +8,10 @@ export const Nursery = ({ id, name, flowers, distributors }) => {
     // An unordered list of distributor business names that purchases flowers from the nursery.
 
 
-    return  <section className="nursery" key={`nursery__${id}`}>
+    return  <section className="nursery text-gray-600" key={`nursery__${id}`}>
         <div>
-            <header className="nursery__header"><h2>{name}</h2></header>
-            <div><h5>Flowers</h5>
+            <header className="nursery__header text-2xl mb-2"><h2>{name}</h2></header>
+            <div><h5 className="text-lg smallHeader">Flowers</h5>
             <ul>
             {
                 flowers.filter(flower => flower.nurseryId === id)
@@ -19,8 +19,8 @@ export const Nursery = ({ id, name, flowers, distributors }) => {
             }
         </ul>
         </div>
-        <div><h5>Distributors</h5>
-            <ul>
+        <div><h5 className="smallHeader">Distributors</h5>
+            <ul className="mb-4">
                 {
                     distributors.map(distributor => <li key={`distributor${distributor.id}`}>Distributor: {distributor.name}</li> )
                 }
