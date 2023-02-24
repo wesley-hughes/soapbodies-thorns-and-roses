@@ -9,7 +9,30 @@ An unordered list of distributor business names that the retailer purchases flow
 An unordered list of nursery business names that the retailer's distributor purchases flowers from.
 */
 
-export const Retailer =() => {
+import { getMatchedDistNur } from "../distributors/DistApis"
 
-    return <></>
+export const Retailer = ({ id, name, address, retMarkup, flowers, distributorObj, distNurseries }) => {
+    if (distNurseries.length === 0) {
+        return null
+    }
+    return <>
+        <header className="retailer__header">{name}</header>
+        <div>{address}</div>
+        <ul>
+            {
+                distNurseries.map(dN => {
+                    const matchedFlower = getMatchedDistNur(dN, flowers)
+                    const distPrice = matchedFlower.price * ((distributorObj.markup +100) / 100)
+                    const finalPrice = (distPrice * ((retMarkup + 100) / 100)).toFixed(2)
+                    return <li key={`retFlower--${dN.id}`}>{matchedFlower.color} {matchedFlower.species} Cost: ${finalPrice}</li>
+                })
+            }
+        </ul>
+        <div>{distributorObj.name}</div>
+        <ul>
+            {
+                distNurseries.map(dN => <li key={`nursery--${dN.nursery.id}`} >{dN.nursery.name}</li>)
+            }
+        </ul>
+    </>
 }
