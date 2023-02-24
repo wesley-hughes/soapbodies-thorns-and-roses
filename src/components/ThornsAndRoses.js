@@ -1,16 +1,15 @@
 import { Route , Routes } from "react-router-dom"
 import { ApplicationViews } from "./views/ApplicationView"
-// import { ApplicationViews } from "/views/ApplicationViews"
-/* import { Authorized } from "./views/Authorized" */
+import { Authorized } from "./views/Authorized"
 import { NavBar } from "./nav/NavBar"
-/* import { Login } from "./auth/Login" */
-/* import { Register } from "./auth/Register" */
+import { Login } from "./auth/Login"
+import { Register } from "./auth/Register"
 /* import "./ThornsAndRoses.css" */
 
 export const ThornsAndRoses = () => {
 
     return <Routes>
-    {/* <Route path="/login" element={<Login />} />
+    <Route path="/login" element={<Login />} />
     <Route path="/register" element={<Register />} />
 
     <Route path="*" element={
@@ -21,12 +20,12 @@ export const ThornsAndRoses = () => {
             </>
         </Authorized>
 
-    } /> */}
-    <Route path="*"  element={ 
+    } />
+    {/* <Route path="*"  element={ 
         <>
     <NavBar />
     <ApplicationViews /> 
-    </> } />
+    </> } /> */}
     
 </Routes>
 }

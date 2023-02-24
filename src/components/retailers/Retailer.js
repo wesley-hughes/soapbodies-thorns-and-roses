@@ -12,7 +12,7 @@ An unordered list of nursery business names that the retailer's distributor purc
 import { getMatchedDistNur } from "../distributors/DistApis"
 
 export const Retailer = ({ id, name, address, retMarkup, flowers, distributorObj, distNurseries }) => {
-    if (distNurseries.length === 0) {
+    if (distNurseries.length === 0 || flowers.length === 0) {
         return null
     }
     return <>
