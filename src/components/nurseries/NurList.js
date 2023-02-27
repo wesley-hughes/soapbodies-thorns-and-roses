@@ -23,25 +23,6 @@ export const NurList = ({flowerObjects}) => {
     }, []
     )
 
-    // const flowerObjects = flowers.filter(flower => flower.id === nurseryPlus.nurseryFlowers.flowerId)
-    //     flowerObjects.map(flowerObject => )
-    //     return flowerObjects
-
-    //     Business name
-    // An unordered list of all flowers that the nursery grows. Show color, species, and the price set by the nursery for that flower.
-    // An unordered list of distributor business names that purchases flowers from the nursery.
-
-
-    // const matchFlowerObjects = (nurseryPlus) => {
-    //     let nurseryArray = []
-
-    //     nurseryPlus.nurseryFlowers.map(nurseryFlower => {
-    //         flowers.find(flower => flower.id === nurser)
-    //         const foundFlower = nurseryFlower.find(nf => nf.flowerId === )
-    //         return foundFlower
-    //     }
-    //     )
-    // 
 
 
     const matchDistributorObjects = (nurseryPlus) => {
@@ -56,6 +37,10 @@ export const NurList = ({flowerObjects}) => {
     }
 
     return <>
+    <img className="fixed -bottom-28 -right-28" id="bg" src="./img/flowers.png" alt="flowers" />
+    <header className="mt-10 mb-8 text-5xl font-light text-center tracking-tight text-cyan-700 dark:text-white">Our Nurseries</header>
+    <div className="m-5 flex flex-row flex-wrap justify-center">
+        
         {
             nurseriesPlus.map(nurseryPlus => {
                 return <Nursery key={`nurseryPlus--${nurseryPlus.id}`}
@@ -67,6 +52,6 @@ export const NurList = ({flowerObjects}) => {
             })
         }
 
-
+</div>
     </>
 }

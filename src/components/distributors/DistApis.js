@@ -15,13 +15,3 @@ export const getMatchedDistNur = (dN, flowers) => {
 
 
 
-// export const get = () => {
-//     return fetch(``)
-//     .then(response => response.json())
-// }
-
-
-// export const get = () => {
-//     return fetch(``)
-//     .then(response => response.json())
-// }

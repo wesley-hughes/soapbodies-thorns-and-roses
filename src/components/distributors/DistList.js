@@ -28,8 +28,11 @@ export const DistList = ({flowerObjects}) => {
     },[]
     )
 
-    return <section className="distributors">
-        {<ul>
+    return <>
+    <img className="fixed -bottom-28 -right-28" id="bg" src="./img/flowers.png" alt="flowers" />
+    <header className="mt-10 mb-8 text-5xl font-light text-center tracking-tight text-cyan-700 dark:text-white">Our Distributors</header>
+    <div className="m-5 flex flex-row flex-wrap justify-center">
+        
             {
                 distributorsPlus.map(distributorPlus => <Distributor key={`distributor--${distributorPlus.id}`} 
                 name={distributorPlus.name}
@@ -39,8 +42,8 @@ export const DistList = ({flowerObjects}) => {
                 flowers={flowerObjects}
                 
                 />)
-            }
-        </ul>
+        
     }
-    </section>
+    </div>
+    </>
 }

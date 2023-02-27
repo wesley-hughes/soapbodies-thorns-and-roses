@@ -13,25 +13,10 @@ export const matchFlowerObjects = (nurseryPlus, flowers) => {
             species: matchingFlower.species,
             color: matchingFlower.color,
             price: nurseryFlower.price,
+            img: matchingFlower.img,
             nurseryId: nurseryFlower.nurseryId
         }
     })
     return flowerObjects
 }
 
-// export const get = () => {
-//     return fetch(``)
-//     .then(response => response.json())
-// }
-
-
-// export const get = () => {
-//     return fetch(``)
-//     .then(response => response.json())
-// }
-
-
-// export const get = () => {
-//     return fetch(``)
-//     .then(response => response.json())
-// }

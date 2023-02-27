@@ -24,7 +24,10 @@ export const RetList = ({flowerObjects}) => {
     }
 
     return <>
-        <section className="retailers">
+    <img className="fixed -bottom-28 -right-28" id="bg" src="./img/flowers.png" alt="flowers" />
+    <header className="mt-10 mb-8 text-5xl font-light text-center tracking-tight text-cyan-700 dark:text-white">Our Retailers</header>
+    <div className="break"></div>
+        <section className="retailers ">
             {
                 retailers.map(retailer => <Retailer key={`retailer--${retailer.id}`}
                 id={retailer.id}
